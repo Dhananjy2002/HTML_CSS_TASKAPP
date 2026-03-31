@@ -105,8 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateStats() {
-        const activeCount = tasks.filter(task => !task.completed).length;
-        taskCount.textContent = `${activeCount} task${activeCount !== 1 ? 's' : ''} left`;
+        if (currentFilter === 'all') {
+            const totalCount = tasks.length;
+            taskCount.textContent = `${totalCount} task${totalCount !== 1 ? 's' : ''} total`;
+        } else if (currentFilter === 'active') {
+            const activeCount = tasks.filter(task => !task.completed).length;
+            taskCount.textContent = `${activeCount} task${activeCount !== 1 ? 's' : ''} left`;
+        } else if (currentFilter === 'completed') {
+            const completedCount = tasks.filter(task => task.completed).length;
+            taskCount.textContent = `${completedCount} task${completedCount !== 1 ? 's' : ''} completed`;
+        }
         
         const hasCompleted = tasks.some(task => task.completed);
         clearCompletedBtn.style.display = hasCompleted ? 'block' : 'none';
