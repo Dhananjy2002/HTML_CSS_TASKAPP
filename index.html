@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskflow | Modern Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Taskflow</h1>
+            <p class="date" id="current-date">Today</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off">
+                <button id="add-btn" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="tasks-section">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be injected here via JS -->
+                </ul>
+                <div class="task-stats">
+                    <span id="task-count">0 tasks left</span>
+                    <button id="clear-completed">Clear Completed</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
